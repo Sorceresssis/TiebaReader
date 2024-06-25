@@ -1,0 +1,123 @@
+.iconfont {
+    font-size: inherit !important;
+    vertical-align: middle !important;
+    user-select: none;
+}
+
+.nickname {
+    color: #2d64b3;
+    cursor: pointer;
+}
+
+.link {
+    display: inline-block;
+    line-height: 24px;
+    vertical-align: middle;
+    color: rgb(25, 103, 210);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.count {
+    color: #258fb8;
+}
+
+#page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+#page .left-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+#page .right-container {
+    width: 300px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.thread {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 6px 30px;
+    border-bottom: 1px solid #d6dee5;
+}
+
+.thread-title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.thread-tail {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+
+.thread-meta {
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 13px;
+    color: #9499A0;
+    box-sizing: border-box;
+    height: 24px;
+    overflow: hidden;
+    gap: 0 20px;
+}
+
+.thread-tag {
+    display: flex;
+    gap: 0 10px;
+}
+
+.thread-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+}
+
+.posts-wrap {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex-grow: 1;
+}
+
+.post-list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.footer {
+    padding: 10px 0;
+}
+
+.post-list-pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.backtop-btn i {
+    font-size: 20px;
+    padding-bottom: 3px;
+}

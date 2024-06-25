@@ -1,0 +1,69 @@
+.fill-parent {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.fill-parent-width {
+    width: 100%;
+    overflow: hidden;
+}
+
+.fill-parent-height {
+    height: 100%;
+    overflow: hidden;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-1 {
+    flex: 1 0;
+}
+
+.scrollbar-y-w4 {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.scrollbar-y-w4::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+}
+
+.scrollbar-y-w4::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #cfcfcf;
+}
+
+.scrollbar-y-w8 {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.scrollbar-y-w8::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+
+.scrollbar-y-w8::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #cfcfcf;
+}
+
+.disabled {
+    cursor: not-allowed !important;
+    opacity: 0.7;
+}
+
+/* 分割线 */
+.divider:not(:last-child) {
+    border-bottom: 1px solid #d6dee5;
+}

@@ -1,0 +1,9 @@
+.el-divider__text {
+    background-color: inherit !important;
+}
+
+
+.el-textarea__inner,
+.el-input__wrapper {
+    border-radius: 0 !important;
+}

@@ -1,0 +1,65 @@
+{
+  "id": "4596031",
+  "name": "TiebaReader",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1517569",
+      "name": "点点",
+      "font_class": "diandian",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "1841761",
+      "name": "分享",
+      "font_class": "fenxiang",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "26535239",
+      "name": "分享",
+      "font_class": "fenxiang2",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "10139936",
+      "name": "view",
+      "font_class": "view1",
+      "unicode": "e69e",
+      "unicode_decimal": 59038
+    },
+    {
+      "icon_id": "21513681",
+      "name": "thumbs-down",
+      "font_class": "thumbs-down",
+      "unicode": "e6ce",
+      "unicode_decimal": 59086
+    },
+    {
+      "icon_id": "21513685",
+      "name": "thumbs-up",
+      "font_class": "thumbs-up",
+      "unicode": "e6cf",
+      "unicode_decimal": 59087
+    },
+    {
+      "icon_id": "17546280",
+      "name": "评论",
+      "font_class": "pinglun2",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "22978041",
+      "name": "转发",
+      "font_class": "zhuanfa4",
+      "unicode": "e8a1",
+      "unicode_decimal": 59553
+    }
+  ]
+}

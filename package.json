@@ -1,0 +1,105 @@
+{
+    "name": "tieba-reader",
+    "private": true,
+    "version": "1.0.0",
+    "main": "dist/main/index.js",
+    "scripts": {
+        "preview:render": "vite preview",
+        "dev": "npm run dev:render && npm run dev:electron",
+        "dev:render": "vite",
+        "dev:electron": "npm run build:electron && electron .",
+        "build": "npm run build:render && npm run build:electron",
+        "build:render": "vue-tsc && vite build",
+        "build:electron": "tsc -p ./src/main && node ./script/copy_electron_assets.js",
+        "release:win": "electron-builder --win",
+        "release:mac": "electron-builder --mac",
+        "release:linux": "electron-builder --linux"
+    },
+    "dependencies": {
+        "benz-amr-recorder": "^1.1.5",
+        "better-sqlite3": "^11.0.0",
+        "element-plus": "^2.7.6",
+        "inversify": "^6.0.2",
+        "reflect-metadata": "^0.2.2",
+        "v-viewer": "^3.0.13",
+        "vue": "^3.4.21"
+    },
+    "devDependencies": {
+        "@types/better-sqlite3": "^7.6.10",
+        "@types/node": "^20.14.5",
+        "@vitejs/plugin-vue": "^5.0.4",
+        "electron": "^30.1.0",
+        "electron-builder": "^24.13.3",
+        "electron-rebuild": "^3.2.9",
+        "typescript": "^5.2.2",
+        "vite": "^5.2.0",
+        "vue-tsc": "^2.0.6"
+    },
+    "author": {
+        "email": "Sorceresssis@gmail.com",
+        "name": "Sorceress"
+    },
+    "build": {
+        "appId": "com.sorceresssis.tieba-reader",
+        "productName": "TiebaReader",
+        "copyright": "Copyright © 2024 Sorceress. All rights reserved",
+        "directories": {
+            "output": "release/${version}"
+        },
+        "files": [
+            "dist"
+        ],
+        "asar": false,
+        "win": {
+            "icon": "build/icon.ico",
+            "artifactName": "${productName}_${version}.${ext}",
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ]
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowElevation": true,
+            "allowToChangeInstallationDirectory": true,
+            "perMachine": false,
+            "deleteAppDataOnUninstall": false
+        },
+        "mac": {
+            "icon": "build/icon.ico",
+            "target": "dmg",
+            "category": "public.app-category.utilities"
+        },
+        "dmg": {
+            "contents": [
+                {
+                    "x": 110,
+                    "y": 150
+                },
+                {
+                    "x": 410,
+                    "y": 150,
+                    "type": "link",
+                    "path": "/Applications"
+                }
+            ]
+        },
+        "linux": {
+            "icon": "build/icon.ico",
+            "target": "deb",
+            "category": "Utility"
+        },
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "Sorceresssis",
+                "repo": "TiebaReader",
+                "releaseType": "draft"
+            }
+        ]
+    }
+}
