@@ -1,6 +1,8 @@
 import n_fs from "node:fs"
 import { injectable, inject } from "inversify";
 import InjectType from "../container/inject_type";
+import Ajv from "ajv";
+import { SCRAPE_INFO_SCHEMA } from "../config/schema";
 import DataDirStruct from "../config/scrapeDataSourceDirStruct";
 import Result from "../pojo/Result";
 
@@ -8,7 +10,8 @@ import Result from "../pojo/Result";
 @injectable()
 class ScrapeInfoService {
     public constructor(
-        @inject(InjectType.ScrapeDataPath) private dataSource: string
+        @inject(InjectType.ScrapeDataPath) private dataSource: string,
+        private scrapeInfoValidator = new Ajv().compile(SCRAPE_INFO_SCHEMA),
     ) { }
 
     public async get(): Promise<Result> {

@@ -1,5 +1,5 @@
 import n_fs from "node:fs";
-import n_path from "node:path"
+import n_path from "node:path";
 import { injectable, inject } from "inversify";
 import container from "../container/container";
 import InjectType from "../container/inject_type";
@@ -7,8 +7,7 @@ import Result from "../pojo/Result";
 import ThreadInfoDTO from "../dto/ThreadInfoDTO";
 import ScrapeDataSourceDirStruct from "../config/scrapeDataSourceDirStruct";
 import type ScrapeInfoService from "./ScrapeInfoService";
-import type UserService from "./UserService";
-import PostService from "./PostService";
+import type PostService from "./PostService";
 
 
 @injectable()
@@ -16,7 +15,7 @@ class ThreadService {
     public constructor(
         @inject(InjectType.ScrapeDataPath) private scrapeDataPath: string,
         @inject(InjectType.ThreadID) private tid: number,
-        @inject(InjectType.ScrapeInfoService) private scrapeInfoService: ScrapeInfoService
+        @inject(InjectType.ScrapeInfoService) private scrapeInfoService: ScrapeInfoService,
     ) { }
 
     public async getThreadInfo(): Promise<Result> {

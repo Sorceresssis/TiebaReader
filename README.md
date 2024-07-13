@@ -26,4 +26,8 @@ TiebaReader 是一个与 [TiebaScraper](https://github.com/Sorceresssis/TiebaScr
 
 ### EMOJI
 
-本程序仅收录了贴吧默认的 EMOJI 表情，未收录全部表情包资源，因为这需要大量的工作量。未收录的表情会以字符串 `EMOJI(desc, type, id)` 的形式显示。
+本程序仅收录了贴吧默认的 EMOJI 表情，未收录全部表情包资源，因为这需要很大的工作量。未收录的表情会以字符串 `EMOJI(desc, type, id)` 的形式显示。
+
+### 贴吧错误说明
+
+[TiebaScraper: 贴吧错误说明](https://github.com/Sorceresssis/TiebaScraper/blob/main/docs/tieba_error_desc.md)

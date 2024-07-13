@@ -1,3 +1,7 @@
+:root {
+    --collapse-thumb-track-width: 16px
+}
+
 .iconfont {
     font-size: inherit !important;
     vertical-align: middle !important;
@@ -16,6 +20,7 @@
     color: rgb(25, 103, 210);
     font-size: 13px;
     cursor: pointer;
+    text-underline-position: under;
 }
 
 .link:hover {
@@ -41,17 +46,11 @@
     overflow: hidden;
 }
 
-#page .right-container {
-    width: 300px;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
 .thread {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    padding: 6px 30px;
+    padding: 6px 30px 6px calc(30px - var(--collapse-thumb-track-width));
     border-bottom: 1px solid #d6dee5;
 }
 
@@ -106,6 +105,8 @@
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    margin: 0 20px;
+    user-select: none;
 }
 
 .footer {

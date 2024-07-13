@@ -9,6 +9,11 @@ declare namespace VO {
         type: number
     }
 
+    interface FragScrapeError extends VO.ContentFragment {
+        error_frag_type: int
+        error_frag_name: string
+    }
+
     interface FragText extends ContentFragment {
         text: string
     }
@@ -91,5 +96,5 @@ declare namespace VO {
         reply_to_user: VO.User // 独有
     }
 
-    type User = Entity.User
+    type User = Omit<Entity.User, 'avatar'> & { avatar: string | undefined };
 }

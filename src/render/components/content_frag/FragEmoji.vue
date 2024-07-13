@@ -4,8 +4,10 @@
          width="20px"
          height="20px"
          :src="generateEmojiUrl(frag)"
+         :title="frag.desc"
          @error="handleError">
-    <span v-else>{{ emojiErrorText }}</span>
+    <span v-else
+          :title="frag.desc">{{ emojiErrorText }}</span>
 </template>
 
 <script setup lang="ts">

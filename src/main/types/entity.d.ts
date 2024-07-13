@@ -69,6 +69,11 @@ declare namespace Entity {
         type: number
     }
 
+    interface FragScrapeError extends ContentFragment {
+        error_frag_type: int
+        error_frag_name: string
+    }
+
     interface FragText extends ContentFragment {
         text: string
     }
@@ -127,7 +132,7 @@ declare namespace Entity {
         portrait: string
         username: string | null
         nickname: string
-        avatar: string
+        avatar: string | null
         glevel: number
         gender: number  // 0 unknown, 1 male, 2 female
         ip: string

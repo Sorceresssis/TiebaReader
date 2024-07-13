@@ -15,12 +15,15 @@
                 :frag="frag as VO.FragVideo" />
     <frag-voice v-else-if="FragType.VOICE === frag.type"
                 :frag="frag as VO.FragVoice" />
-    <div v-else
-         :frag="frag"></div>
+    <frag-scrape-error v-else-if="FragType.SCRAPE_ERROR === frag.type"
+                       :frag="frag as VO.FragScrapeError" />
+    <span v-else
+          :frag="frag"></span>
 </template>
 
 <script setup lang="ts">
 import { FragType } from '@/constant/enum';
+import FragScrapeError from '@/components/content_frag/FragScrapeError.vue';
 import FragText from '@/components/content_frag/FragText.vue';
 import FragEmoji from '@/components/content_frag/FragEmoji.vue';
 import FragImage from '@/components/content_frag/FragImage.vue';

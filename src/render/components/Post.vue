@@ -5,7 +5,8 @@
                 <div class="avatar-wrap">
                     <el-avatar size="large"
                                shape="square"
-                               :src="post.user.avatar" />
+                               :src="post.user.avatar"
+                               @error="handleUserAvatarError" />
                 </div>
             </user-popover>
         </div>
@@ -82,6 +83,7 @@
 import { onMounted, reactive, ref, inject, readonly, toRaw } from 'vue'
 import { formatTimestampToDateTimeString } from '@/utils/time';
 import InitialValue from '@/constant/initial_value';
+import ResourcePath from '@/constant/resource_path';
 import { ElAvatar, ElPagination, ElMessage, ElCollapseTransition } from 'element-plus';
 import UserPopover from './UserPopover.vue';
 import TiebaTag from './TiebaTag.vue';
@@ -124,6 +126,10 @@ const queryComments = function () {
     })
 }
 
+const handleUserAvatarError = function () {
+    props.post.user.avatar = ResourcePath.USER_AVATAR_DEFAULT
+}
+
 const handleSwitchExpandComments = function () {
     isExpandComments.value = !isExpandComments.value
 }
@@ -148,6 +154,7 @@ onMounted(() => {
     padding: 22px 15px 0 var(--post-avatar-width);
     position: relative;
     box-sizing: border-box;
+    user-select: text;
 }
 
 .post-avatar {

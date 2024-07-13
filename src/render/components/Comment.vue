@@ -5,7 +5,8 @@
                 <div class="avatar-wrap">
                     <el-avatar :size="'default'"
                                shape="square"
-                               :src="comment.user.avatar" />
+                               :src="comment.user.avatar"
+                               @error="handleUserAvatarError" />
                 </div>
             </user-popover>
         </div>
@@ -35,6 +36,7 @@
 <script setup lang="ts">
 import { ElAvatar } from 'element-plus';
 import { formatTimestampToDateTimeString } from '@/utils/time';
+import ResourcePath from '@/constant/resource_path';
 import UserPopover from './UserPopover.vue';
 import TiebaTag from './TiebaTag.vue';
 import Bawu from '@/components/Bawu.vue';
@@ -42,9 +44,14 @@ import TiebaGlevel from '@/components/TiebaGlevel.vue'
 import TiebaLevel from '@/components/TiebaLevel.vue'
 import Contents from '@/components/Contents.vue';
 
-defineProps<{
+const props = defineProps<{
     comment: VO.Comment
 }>()
+
+
+const handleUserAvatarError = function () {
+    props.comment.user.avatar = ResourcePath.USER_AVATAR_DEFAULT
+}
 
 </script>
 

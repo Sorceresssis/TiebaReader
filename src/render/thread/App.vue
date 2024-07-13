@@ -202,6 +202,7 @@ onUnmounted(() => {
 
 <style>
 .collapse-thumb-track {
+    width: var(--collapse-thumb-track-width);
     display: flex;
     align-items: center;
 }
@@ -218,9 +219,9 @@ onUnmounted(() => {
     color: var(--el-color-primary);
 }
 
-
 .collapse-enter-from,
 .collapse-leave-to {
+    position: absolute;
     transform: translateX(-100%);
 }
 

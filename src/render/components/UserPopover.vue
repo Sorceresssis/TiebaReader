@@ -1,6 +1,7 @@
 <template>
     <el-popover trigger="hover"
-                :width="popoverWidth">
+                :width="popoverWidth"
+                :show-after="showAfter">
         <template #reference>
             <slot></slot>
         </template>
@@ -11,7 +12,8 @@
                     <div class="avatar-wrap">
                         <el-avatar :src="user.avatar"
                                    shape="square"
-                                   size="large" />
+                                   size="large"
+                                   @error="handleUserAvatarError" />
                     </div>
                 </div>
                 <div class="nickname-row">
@@ -65,13 +67,19 @@
 </template>
 
 <script setup lang="ts">
+import ResourcePath from '@/constant/resource_path';
 import { ElAvatar, ElPopover } from 'element-plus';
 
 const popoverWidth = '360px'
+const showAfter = 500
 
-defineProps<{
+const props = defineProps<{
     user: VO.User
 }>();
+
+const handleUserAvatarError = function () {
+    props.user.avatar = ResourcePath.USER_AVATAR_DEFAULT
+}
 
 </script>
 

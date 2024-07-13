@@ -1,8 +1,9 @@
 import n_path from "node:path"
 import { injectable, inject } from "inversify";
 import InjectType from "../container/inject_type";
-import type UserDao from "../dao/UserDao";
 import ScrapeDataSourceDirStruct from "../config/scrapeDataSourceDirStruct";
+import ResourcePath from "../config/resource_path";
+import type UserDao from "../dao/UserDao";
 
 @injectable()
 class UserService {
@@ -18,8 +19,10 @@ class UserService {
 
 
     public getUserInfo(id: number): DTO.User | undefined {
-        const user = this.userDao.getUserById(id)
-        if (user) user.avatar = 'file:///' + n_path.join(this.userAvatarDir, user.avatar)
+        const user: DTO.User = this.userDao.getUserById(id) as any
+        if (user) user.avatar = user.avatar ?
+            'file:///' + n_path.join(this.userAvatarDir, user.avatar)
+            : ResourcePath.USER_AVATAR_DEFAULT
         return user
     }
 }

@@ -69,13 +69,17 @@
                     <span class="link"
                           @click="openInBrowser(`https://tieba.baidu.com/p/${thread.id}`)">打开帖子原网页</span>
                 </div>
+                <div>
+                    <span class="link"
+                          @click="openThreadSourceInExplorer">在资源管理器中打开</span>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { inject, readonly } from 'vue';
+import { inject, readonly, ref } from 'vue';
 import { formatTimestampToDateTimeString } from '@/utils/time';
 import { openInBrowser } from '@/api/electronApi';
 
@@ -86,6 +90,10 @@ const thread = inject<VO.Thread>('thread')!
 
 const openShareOriginThread = function () {
     window.appAPI.createThreadWindow(threadSource.path, thread.share_origin)
+}
+
+const openThreadSourceInExplorer = function () {
+    window.electronAPI.openInExplorer(threadSource.path, 'showItemInFolder')
 }
 
 </script>
@@ -123,7 +131,6 @@ const openShareOriginThread = function () {
 
 .sidebar-block {}
 
-
 .sidebar-block__title {
     font-weight: 700;
     font-size: 16px;
@@ -141,7 +148,7 @@ const openShareOriginThread = function () {
 }
 
 .sidebar-block th {
-    min-width: 60px;
+    min-width: 70px;
     height: 22px;
     text-align: right;
     box-sizing: border-box;

@@ -7,4 +7,6 @@ export enum FragType {
     TIEBA_PLUS = 6,
     VIDEO = 7,
     VOICE = 8,
+
+    SCRAPE_ERROR = -1
 }
