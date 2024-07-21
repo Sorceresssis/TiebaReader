@@ -2,6 +2,12 @@
 
 TiebaReader 是一个与 [TiebaScraper](https://github.com/Sorceresssis/TiebaScraper) 配套的阅读器。它能够更直观地展示 TiebaScraper 爬取到的贴吧帖子，并支持图片、语音、视频的查看和播放。
 
+## 新功能开发中
+
+1. 搜索功能帖子。点击跳转。
+
+命中内容包括: FragText.text 、FragAt.text、FragLink.title、FragTiebaPlus.text、user.username、user.nickname、post.sign。
+
 ## 截图
 
 ### 主页

@@ -1,7 +1,7 @@
 {
     "name": "tieba-reader",
     "private": true,
-    "version": "1.1.0",
+    "version": "1.1.1",
     "main": "dist/main/index.js",
     "scripts": {
         "dev": "concurrently \"npm run dev:render\" \"npm run dev:electron\"",

@@ -101,4 +101,21 @@ export default function dataIpcMain() {
             contentDB?.close()
         }
     })
+
+    ipcMain.handle('data:searchPost', (e: IpcMainInvokeEvent,
+        threadSource: RP.ThreadSource,
+        keyword: string
+    ) => {
+        let contentDB
+        try {
+            contentDB = new ContentDB(threadSource.path, threadSource.tid)
+            rebindDataSourcesDeps(threadSource.path, threadSource.tid, contentDB)
+
+            // TODO 搜索
+        } catch (e: any) {
+            return Result.error(e.message)
+        } finally {
+            contentDB?.close()
+        }
+    })
 }

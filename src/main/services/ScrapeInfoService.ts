@@ -22,11 +22,8 @@ class ScrapeInfoService {
             const data: Entity.ScrapeInfo = JSON.parse(await n_fs.promises.readFile(scrapeInfoPath, 'utf8'));
 
             // 开始检查数据是否正确
-            if (data.main_thread === undefined
-                || data.scraper_version === undefined
-                || data.create_time === undefined) {
+            if (!this.scrapeInfoValidator(data))
                 throw new Error('数据源可能损坏, 导致数据加载失败');
-            }
 
             return Result.ok(data)
         } catch (e: any) {

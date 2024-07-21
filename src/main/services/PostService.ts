@@ -179,6 +179,14 @@ class PostService {
 
         return parsedContents
     }
+
+    public searchPosts(): undefined {
+
+        // TODO
+        // 还有传入  ， post 的 pagesize， 和 comment的 pageszie 
+        // 返回  ppn, floor, pid,  
+        // cpn, cid,
+    }
 }
 
 

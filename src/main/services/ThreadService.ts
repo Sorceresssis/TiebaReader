@@ -37,7 +37,6 @@ class ThreadService {
         ));
     }
 
-
     public async getThreadPreview(): Promise<DTO.ThreadPreview | undefined> {
         const threadRes = await this.getThread()
         const thread: Entity.Thread = threadRes.data

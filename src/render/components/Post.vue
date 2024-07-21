@@ -57,6 +57,7 @@
                     <div v-if="comments.length"
                          class="comment-list">
                         <comment v-for="comment in comments"
+                                 :key="comment.id"
                                  :comment="comment" />
                     </div>
                     <el-pagination v-if="clickedViewMore"

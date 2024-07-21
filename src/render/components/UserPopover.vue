@@ -111,7 +111,8 @@ const handleUserAvatarError = function () {
     height: 80px;
 }
 
-.user-popover .nickname {
+.user-popover .nickname-row {
+    min-height: 30px;
     font-weight: 700;
     font-size: 16px;
 }

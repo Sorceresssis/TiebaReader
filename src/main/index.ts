@@ -1,15 +1,15 @@
 import { BrowserWindow, app, Menu, Tray } from "electron"
 import n_path from "node:path"
 import { createWindow } from "./windows/main.window"
+import { setupMenu } from "./app/app_menu";
 import IPCMain from './ipcMain'
 
 async function bootstrap() {
-    Menu.setApplicationMenu(null)
-
     app.on("ready", () => {
-        // 通信
+        setupMenu()
+
         IPCMain()
-        // 主窗口
+
         let mainWin = createWindow()  // 启动窗口
 
         // 托盘 

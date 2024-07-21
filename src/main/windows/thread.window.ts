@@ -4,7 +4,7 @@ import n_path from "node:path"
 
 const isPackaged = app.isPackaged
 
-export function createWindow(path: string, tid: number): BrowserWindow {
+export function createWindow(threadSource: RP.ThreadSource): BrowserWindow {
     const win = new BrowserWindow({
         width: 1050,
         height: 649,
@@ -29,7 +29,7 @@ export function createWindow(path: string, tid: number): BrowserWindow {
     }
 
     win.once('ready-to-show', () => {
-        win.webContents.send('window:acceptThreadWindowParams', { path, tid } as RP.ThreadSource,)
+        win.webContents.send('window:acceptThreadWindowParams', threadSource)
         win.show()
     })
 

@@ -1,3 +1,5 @@
+import ResourcePath from "./resource_path"
+
 class InitialValue {
     private static __deepCopy(obj: any) {
         return JSON.parse(JSON.stringify(obj))
@@ -60,6 +62,7 @@ class InitialValue {
             id: 0,
             title: '',
             forum_id: 0,
+            forum_name: '',
             post_id: 0,
             user_id: 0,
             type: 0,
@@ -102,7 +105,7 @@ class InitialValue {
             portrait: '',
             username: '',
             nickname: '',
-            avatar: '',
+            avatar: ResourcePath.USER_AVATAR_DEFAULT,
             glevel: 0,
             gender: 0,
             ip: '',

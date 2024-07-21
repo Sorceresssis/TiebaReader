@@ -28,7 +28,7 @@ export default function appIpcMain() {
             const threadDir = scrapeDataSourceDirStruct.getThreadsDir(path, tid)
             if (!n_fs.existsSync(threadDir)) return Result.error('数据源损坏')
 
-            threadWindow.createWindow(path, tid)
+            threadWindow.createWindow({ path, tid })
             return Result.ok()
         } catch (e: any) {
             if (e.code === 'ENOENT') {

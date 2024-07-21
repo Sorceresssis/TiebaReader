@@ -35,6 +35,7 @@ declare namespace Entity {
         id: number
         title: string
         forum_id: number
+        forum_name: string
         post_id: number
         user_id: number
         type: number
@@ -132,13 +133,14 @@ declare namespace Entity {
         portrait: string
         username: string | null
         nickname: string
+        tieba_uid: number | null
+
         avatar: string | null
         glevel: number
         gender: number  // 0 unknown, 1 male, 2 female
         ip: string
         is_vip: boolean
         is_god: boolean
-        tieba_uid: number | null
         age: number
         sign: string
         post_num: number

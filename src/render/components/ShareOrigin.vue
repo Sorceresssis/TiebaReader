@@ -42,7 +42,7 @@ onMounted(() => {
             return
         }
         contents.value = res.data.contents
-        Object.assign(user, res.data.user)
+        if (res.data.user) Object.assign(user, res.data.user)
         Object.assign(shareOriginThread, res.data.thread)
     })
 })
