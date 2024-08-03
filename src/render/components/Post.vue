@@ -52,7 +52,8 @@
                 </div>
             </div>
             <el-collapse-transition>
-                <div v-if="post.floor !== 1"
+                <div v-loading="isRequestingComments"
+                     v-if="post.floor !== 1"
                      v-show="isExpandComments">
                     <div v-if="comments.length"
                          class="comment-list">
@@ -85,7 +86,7 @@ import { onMounted, reactive, ref, inject, readonly, toRaw } from 'vue'
 import { formatTimestampToDateTimeString } from '@/utils/time';
 import InitialValue from '@/constant/initial_value';
 import ResourcePath from '@/constant/resource_path';
-import { ElAvatar, ElPagination, ElMessage, ElCollapseTransition } from 'element-plus';
+import { ElAvatar, ElPagination, ElMessage, ElCollapseTransition, vLoading } from 'element-plus';
 import UserPopover from './UserPopover.vue';
 import TiebaTag from './TiebaTag.vue';
 import Bawu from '@/components/Bawu.vue';
@@ -97,6 +98,7 @@ import ShareOrigin from '@/components/ShareOrigin.vue';
 import TiebaSign from '@/components/TiebaSign.vue';
 import Comment from '@/components/Comment.vue';
 
+const isRequestingComments = ref<boolean>(false)
 const threadSource = readonly(inject<RP.ThreadSource>('threadSource')!)
 const thread = inject<VO.Thread>('thread')!
 const commentRn = 5
@@ -112,6 +114,7 @@ const comments = ref<VO.Comment[]>([])
 const commentsPage = reactive<Page>(InitialValue.getPage())
 
 const queryComments = function () {
+    isRequestingComments.value = true
     window.dataAPI.getComments(toRaw(threadSource), {
         pid: props.post.id,
         pn: commentsPage.current_page,
@@ -124,6 +127,8 @@ const queryComments = function () {
         }
         comments.value = res.data.comments
         Object.assign(commentsPage, res.data.page)
+    }).finally(() => {
+        isRequestingComments.value = false
     })
 }
 

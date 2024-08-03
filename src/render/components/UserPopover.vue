@@ -28,7 +28,12 @@
                         <span v-else>性别未知</span>
                     </div>
                     <div><span>吧龄: </span><span class="count">{{ user.age }}</span><span>年</span> </div>
-                    <div><span>IP: </span><span class="count">{{ user.ip }}</span></div>
+                    <div>
+                        <span>IP: </span>
+                        <span v-if="user.ip === ''"
+                              class="count">{{ user.ip }}</span>
+                        <span v-else> 未知 </span>
+                    </div>
                 </div>
                 <div class="user-popover-upc-row">
                     <div> <span>发帖: </span><span class="count">{{ user.post_num }}</span></div>
@@ -150,5 +155,8 @@ const handleUserAvatarError = function () {
 
 .user-popover td {
     padding-bottom: 2px;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
 }
 </style>

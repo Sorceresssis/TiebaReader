@@ -11,7 +11,8 @@
             <span @click="handleSwitchSidebarExpand"
                   class="collapse-thumb iconfont"> &#xe653; </span>
         </div>
-        <div class="left-container">
+        <div v-loading="isRequestingPosts"
+             class="left-container">
             <div class="thread">
                 <div class="thread-title">
                     <h1 :title="thread.title"> {{ thread.title }} </h1>
@@ -91,6 +92,7 @@ import Post from '@/components/Post.vue';
 import TiebaTag from '../components/TiebaTag.vue';
 
 const isReceivingThreadSource = ref<boolean>(true)
+const isRequestingPosts = ref<boolean>(true)
 
 const userCloseSidebar = ref<boolean>(false)
 const userOpenSidebar = ref<boolean>(false)
@@ -137,6 +139,7 @@ const page = reactive<Page>(InitialValue.getPage())
 
 
 const queryPosts = () => {
+    isRequestingPosts.value = true
     window.dataAPI.getPosts(threadSource, {
         pn: page.current_page,
         rn: page.page_size,
@@ -152,6 +155,8 @@ const queryPosts = () => {
         posts.value = res.data.posts
         setScrollPosition(0)
         Object.assign(page, res.data.page)
+    }).finally(() => {
+        isRequestingPosts.value = false
     })
 }
 
